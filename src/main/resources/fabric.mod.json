@@ -1,0 +1,33 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${mod_version}",
+
+    "name": "${mod_name}",
+    "description": "Stormfest is a mod that adds an **Enchanted Music Disc** dropped by Charged Creepers when killed by stray Skeleton arrows. Upon playing said disc; a thunderstorm will begin, using up the disc's mystical powers.",
+    "authors": [
+        "Sydist: Programming",
+        "MisterKaze: Concept & Music",
+        "Hitsuu: Design & Art"
+    ],
+    "contact": {
+        "homepage": "",
+        "sources": "https://github.com/Sydist/stormfest"
+    },
+
+    "license": "MIT",
+    "icon": "assets/${mod_id}/icon.png",
+
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "${maven_group}.Main"
+        ]
+    },
+    "mixins": [],
+    "depends": {
+        "fabricloader": ">=0.14.9",
+        "minecraft": "~1.19",
+        "java": ">=17"
+    }
+}
