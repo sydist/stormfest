@@ -14,6 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Retrieve artifacts from intergration
+        uses: actions/download-artifact@v3
+        with:
+          name: jar
+          path: build/libs/
+
       - name: Create changelog
         id: changelog
         uses: loopwerk/tag-changelog@v1
@@ -21,14 +27,19 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .github/log.config.js
 
-      - name: Deploy release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploys artifacts
+        uses: Kir-Antipov/mc-publish@v3.2
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: ${{ github.ref_name }}
-          body: ${{ steps.changelog.outputs.changes }}
-          draft: false
-          prerelease: false
+          # TODO: Add Modrinth and Curseforge deployment
+          name: Stormfest ${{ github.ref_name }}
+          changelog: ${{ steps.changelog.outputs.changes }}
+          files-primary: build/libs/*
+
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          
+          loaders: fabric
+          game-versions: ~1.19
+          java: 17
+
+
     
