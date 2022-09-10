@@ -3,8 +3,8 @@
 # Stormfest (Fabric Mod)
 Stormfest is a mod that adds an **Enchanted Music Disc** dropped from Charged Creepers when killed by Skeleton arrows.
 
-Upon playing said disc; a thunderstorm will begin, using up the disc's mystical powers.
-After that, the disc can be played normally.
+Upon playing the disc; a thunderstorm will begin, using up the disc's mystical powers.
+Afterwards, the disc can be played normally like any other.
 
 <br>
 
@@ -19,6 +19,7 @@ ___
 * **Sydist**: Programming
 * **MisterKaze**: Concept, Music
 * **Hitsuu**: Design, Artwork
+
 
 
 [icon]: ./src/main/resources/assets/stormfest/icon.png
