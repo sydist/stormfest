@@ -1,0 +1,36 @@
+{
+    "display": {
+      "icon": {
+        "item": "stormfest:enchanted_music_disc"
+      },
+      "title": "Hi, Voltage!",
+      "description": "Summon a thunderstorm using an Enchanted Music Disc",
+      "frame": "task",
+      "show_toast": true,
+      "announce_to_chat": true,
+      "hidden": false
+    },
+    "parent": "minecraft:adventure/root",
+    "criteria": {
+      "hi_voltage": {
+        "trigger": "minecraft:item_used_on_block",
+        "conditions": {
+          "item": {
+            "items": [
+              "stormfest:enchanted_music_disc"
+            ]
+          },
+          "location": {
+            "block": {
+              "blocks": [
+                "minecraft:jukebox"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "rewards": {
+      "experience": 100
+    }
+  }
