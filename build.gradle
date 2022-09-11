@@ -2,8 +2,8 @@ plugins {
     id 'fabric-loom' version '1.0-SNAPSHOT'
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+apply from: ("gradle/fabric.gradle")
+apply from: ("gradle/java.gradle")
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -12,31 +12,12 @@ dependencies {
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
+	include modImplementation(fabricApi.module("fabric-networking-api-v1", project.fabric_version))
 	include modImplementation(fabricApi.module("fabric-api-base", project.fabric_version))
 	include modImplementation(fabricApi.module("fabric-registry-sync-v0", project.fabric_version))
-	include modImplementation(fabricApi.module("fabric-networking-api-v1", project.fabric_version))
 	include modImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabric_version))
 }
 
-loom {
-	accessWidenerPath = file("src/main/resources/${project.mod_id}.accesswidener")
-}
-
-processResources {
-	filesMatching("fabric.mod.json") {
-		expand project.properties
-	}
-}
-
-
-
-
-tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
-}
-
-jar {
-	from("LICENSE") {
-		rename { "${it}_${project.mod_id}"}
-	}
-}
+version = "v${project.mod_version}"
+archivesBaseName = project.mod_id
+group = project.maven_group
