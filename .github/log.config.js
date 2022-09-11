@@ -12,7 +12,7 @@ module.exports = {
 
         {
             types: ["improvement", "perf", "enhancement"],
-            label: "🪛 Tweaks",
+            label: "⏫ Improvements",
         },
     ],
 
