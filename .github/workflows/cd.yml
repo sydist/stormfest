@@ -30,16 +30,26 @@ jobs:
       - name: Deploys artifacts
         uses: Kir-Antipov/mc-publish@v3.2
         with:
-          # TODO: Add Modrinth and Curseforge deployment
+          # TODO: Add Curseforge deployment
+          modrinth-id: DKknxXqy
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
           name: Stormfest ${{ github.ref_name }}
           changelog: ${{ steps.changelog.outputs.changes }}
           files-primary: build/libs/*
 
           github-token: ${{ secrets.GITHUB_TOKEN }}
           
-          loaders: fabric
-          game-versions: ~1.19
-          java: 17
+          loaders: |
+            fabric
+            
+          game-versions: |
+            1.19
+            1.19.1
+            1.19.2
+          
+          java: |
+            17
 
 
     

@@ -11,7 +11,7 @@ module.exports = {
         },
 
         {
-            types: ["improvement", "perf", "enhancement"],
+            types: ["improvement", "perf", "enhancement", "refactor"],
             label: "⏫ Improvements",
         },
     ],
