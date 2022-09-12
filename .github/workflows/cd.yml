@@ -2,9 +2,11 @@ name: Continuous Deployment
 
 on:
   push:
-  pull_request:
-    tags: [ "v*.*.*" ]
     branches: [ main ]
+    tags: [ "v*.*.*" ]
+  pull_request:
+    branches: [ main ]
+    tags: [ "v*.*.*" ]
 
 jobs:
   deploy:
