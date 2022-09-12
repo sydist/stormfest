@@ -1,6 +1,9 @@
 package io.github.sydist;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.MusicDiscItem;
@@ -30,5 +33,13 @@ public class Main implements ModInitializer {
 	public void onInitialize() {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "enchanted_music_disc"), ENCHANTED_MUSIC_DISC_ITEM);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "music_disc_stormfest"), MUSIC_DISC_STORMFEST_ITEM);
+		FabricLoader.getInstance().getModContainer(MOD_ID).map(
+			container -> ResourceManagerHelper.registerBuiltinResourcePack(
+				new Identifier(MOD_ID, "programmer_art"),
+				container,
+				"Stormfest's Programmer Art",
+				ResourcePackActivationType.NORMAL
+			)
+		);
 	}
 }
