@@ -51,7 +51,7 @@ jobs:
 
           name: Stormfest ${{ github.ref_name }}
           changelog: ${{ steps.changelog.outputs.changes }}
-          files-primary: build/lib/stormfest-*.jar
+          files-secondary:
 
           github-token: ${{ secrets.GITHUB_TOKEN }}
           
