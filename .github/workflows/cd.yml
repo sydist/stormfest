@@ -3,10 +3,9 @@ name: Continuous Deployment
 on:
   pull_request:
   push:
-    branches-ignore:
-      - 'dev'
     branches: 
       - 'main'
+      
     tags: 
       - v*.*.*
       
