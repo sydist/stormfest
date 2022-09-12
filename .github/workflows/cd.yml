@@ -1,9 +1,8 @@
 name: Continuous Deployment
 
 on:
-  workflow_run:
-    workflows: [ Continuous Intergration ]
-    types: [ completed ]
+  push:
+  pull_request:
     tags: [ "v*.*.*" ]
     branches: [ main ]
 
