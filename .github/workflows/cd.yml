@@ -37,7 +37,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .github/log.config.js
 
-      - name: Deploys artifacts
+      - name: Deploy
         uses: Kir-Antipov/mc-publish@v3.2
         with:
           modrinth-id: DKknxXqy
