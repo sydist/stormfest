@@ -30,9 +30,11 @@ jobs:
       - name: Deploys artifacts
         uses: Kir-Antipov/mc-publish@v3.2
         with:
-          # TODO: Add Curseforge deployment
           modrinth-id: DKknxXqy
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: 545658
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           name: Stormfest ${{ github.ref_name }}
           changelog: ${{ steps.changelog.outputs.changes }}
