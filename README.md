@@ -14,6 +14,11 @@ Afterwards, the disc can be played normally like any other.
 
 ___
 
+## Old Textures
+If you prefer the older textures, check out [Stormfest's Programmer Art resource pack](https://github.com/sydist/stormfest-programmer-art/releases)
+
+---
+
 ## Credits
 
 * **Sydist**: Programming
