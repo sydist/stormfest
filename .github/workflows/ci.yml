@@ -32,10 +32,3 @@ jobs:
 
       - name: Build with Gradle Wrapper
         run: ./gradlew build
-
-      - name: Save artifacts
-        if: ${{ runner.os == 'Linux' }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: jar
-          path: build/libs/

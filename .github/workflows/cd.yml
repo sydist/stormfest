@@ -13,12 +13,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1
 
-      - name: Retrieve artifacts from intergration
-        uses: actions/download-artifact@v3
+      - name: Setup Java
+        uses: actions/setup-java@v3
         with:
-          name: jar
-          path: build/libs/
+          distribution: adopt
+          java-version: ${{ matrix.java }}
+      
+      - name: Permit Gradle Wrapper to run
+        if: ${{ runner.os != 'Windows' }}
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle Wrapper
+        run: ./gradlew build
 
       - name: Create changelog
         id: changelog
@@ -38,7 +48,7 @@ jobs:
 
           name: Stormfest ${{ github.ref_name }}
           changelog: ${{ steps.changelog.outputs.changes }}
-          files-primary: build/libs/*
+          files-primary: build/lib/stormfest-*.jar
 
           github-token: ${{ secrets.GITHUB_TOKEN }}
           
@@ -52,6 +62,3 @@ jobs:
           
           java: |
             17
-
-
-    
