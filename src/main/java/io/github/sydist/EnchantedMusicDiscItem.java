@@ -17,10 +17,12 @@ import net.minecraft.world.WorldEvents;
 
 public class EnchantedMusicDiscItem extends MusicDiscItem {
     private Consumer<ItemUsageContext> ability;
+    private Item nonEnchantedItem;
 
-    public EnchantedMusicDiscItem(int comparatorOutput, SoundEvent sound, Settings settings, int lengthInSeconds, Consumer<ItemUsageContext> ability) {
+    public EnchantedMusicDiscItem(int comparatorOutput, SoundEvent sound, Settings settings, int lengthInSeconds, Consumer<ItemUsageContext> ability, Item nonEnchantedItem) {
         super(comparatorOutput, sound, settings, lengthInSeconds);
         this.ability = ability;
+        this.nonEnchantedItem = nonEnchantedItem;
     }
     
     @Override
@@ -43,9 +45,9 @@ public class EnchantedMusicDiscItem extends MusicDiscItem {
             var player = context.getPlayer();
             context.getStack().decrement(1);
 
-            jukebox.setRecord(player, server, blockPos, block, new ItemStack(Main.MUSIC_DISC_STORMFEST_ITEM));
+            jukebox.setRecord(player, server, blockPos, block, new ItemStack(nonEnchantedItem));
             server.syncWorldEvent(null, WorldEvents.MUSIC_DISC_PLAYED, blockPos, Item.getRawId(this));
-            ability.accept(context);
+            this.ability.accept(context);
 
             Optional.ofNullable(player).ifPresent(entity -> entity.increaseStat(Stats.PLAY_RECORD, 1));
         }

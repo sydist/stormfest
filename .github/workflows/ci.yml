@@ -3,7 +3,7 @@ name: Continuous Intergration
 on: 
   pull_request:
   push:
-    branches: 
+    branches:
       - 'dev'
     
 jobs:

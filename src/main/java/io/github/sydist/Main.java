@@ -20,18 +20,19 @@ public class Main implements ModInitializer {
 	private static final SoundEvent MUSIC_DISC_STORMFEST_SOUNDEVENT = new SoundEvent(new Identifier(MOD_ID, MUSIC_DISC_STORMFEST_SOUNDEVENT_ID));
     
 	private static final Item.Settings DEFAULT_SETTINGS = new Item.Settings().maxCount(1).group(ItemGroup.MISC);
-	public static final Item MUSIC_DISC_STORMFEST_ITEM = new MusicDiscItem(1, MUSIC_DISC_STORMFEST_SOUNDEVENT, DEFAULT_SETTINGS.rarity(Rarity.RARE), 166);
-	public static final Item ENCHANTED_MUSIC_DISC_ITEM = new EnchantedMusicDiscItem(
+	public static final Item MUSIC_DISC_STORMFEST_ITEM = new MusicDiscItem(15, MUSIC_DISC_STORMFEST_SOUNDEVENT, DEFAULT_SETTINGS.rarity(Rarity.RARE), 166);
+	public static final Item ENCHANTED_MUSIC_DISC_STORMFEST_ITEM = new EnchantedMusicDiscItem(
 		15, 
 		MUSIC_DISC_STORMFEST_SOUNDEVENT, 
 		DEFAULT_SETTINGS.rarity(Rarity.EPIC), 
 		166, 
-		context -> ((ServerWorld)context.getWorld()).setWeather(0, 3320, true, true)
+		context -> ((ServerWorld)context.getWorld()).setWeather(0, 3320, true, true),
+		MUSIC_DISC_STORMFEST_ITEM
 	);
 
 	@Override
 	public void onInitialize() {
-		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "enchanted_music_disc"), ENCHANTED_MUSIC_DISC_ITEM);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "enchanted_music_disc_stormfest"), ENCHANTED_MUSIC_DISC_STORMFEST_ITEM);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "music_disc_stormfest"), MUSIC_DISC_STORMFEST_ITEM);
 		FabricLoader.getInstance().getModContainer(MOD_ID).map(
 			container -> ResourceManagerHelper.registerBuiltinResourcePack(

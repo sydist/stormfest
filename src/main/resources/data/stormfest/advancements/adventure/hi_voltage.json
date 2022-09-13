@@ -1,7 +1,7 @@
 {
     "display": {
       "icon": {
-        "item": "stormfest:enchanted_music_disc"
+        "item": "stormfest:enchanted_music_disc_stormfest"
       },
       "title": "Hi, Voltage!",
       "description": "Summon a thunderstorm using an Enchanted Music Disc",
@@ -17,7 +17,7 @@
         "conditions": {
           "item": {
             "items": [
-              "stormfest:enchanted_music_disc"
+              "stormfest:enchanted_music_disc_stormfest"
             ]
           },
           "location": {

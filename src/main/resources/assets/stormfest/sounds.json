@@ -1,7 +1,7 @@
 {
     "music_disc.stormfest": {
         "sounds": [
-            "stormfest:stormfest"
+            "stormfest:music_disc_stormfest"
         ]
     }
 }
