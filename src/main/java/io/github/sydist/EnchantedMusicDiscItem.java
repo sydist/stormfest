@@ -2,9 +2,10 @@ package io.github.sydist;
 
 import java.util.Optional;
 import java.util.function.Consumer;
-
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.JukeboxBlock;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -13,6 +14,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 
 public class EnchantedMusicDiscItem extends MusicDiscItem {
@@ -32,17 +35,17 @@ public class EnchantedMusicDiscItem extends MusicDiscItem {
     
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        var world = context.getWorld();
-        var blockPos = context.getBlockPos();
-        var block = world.getBlockState(blockPos);
+        World world = context.getWorld();
+        BlockPos blockPos = context.getBlockPos();
+        BlockState block = world.getBlockState(blockPos);
         
         if (!block.isOf(Blocks.JUKEBOX) || block.get(JukeboxBlock.HAS_RECORD).booleanValue())
             return ActionResult.PASS;
         
         if (!world.isClient) {
-            var jukebox = (JukeboxBlock)Blocks.JUKEBOX;
-            var server = (ServerWorld)world;
-            var player = context.getPlayer();
+            JukeboxBlock jukebox = (JukeboxBlock)Blocks.JUKEBOX;
+            ServerWorld server = (ServerWorld)world;
+            PlayerEntity player = context.getPlayer();
             context.getStack().decrement(1);
 
             jukebox.setRecord(player, server, blockPos, block, new ItemStack(nonEnchantedItem));

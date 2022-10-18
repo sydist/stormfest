@@ -6,9 +6,4 @@ processResources {
 
 loom {
 	accessWidenerPath = file("src/main/resources/${project.mod_id}.accesswidener")
-	runs {
-		client {
-			vmArgs project.vm_args.split(" ")
-		}
-	}
 }
