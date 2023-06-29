@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.0-SNAPSHOT'
+    id 'fabric-loom' version '1.2-SNAPSHOT'
 }
 
 apply from: ("gradle/fabric.gradle")
@@ -10,12 +10,12 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
-	include modImplementation(fabricApi.module("fabric-networking-api-v1", project.fabric_version))
-	include modImplementation(fabricApi.module("fabric-api-base", project.fabric_version))
-	include modImplementation(fabricApi.module("fabric-registry-sync-v0", project.fabric_version))
-	include modImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabric_version))
+	// include modImplementation(fabricApi.module("fabric-networking-api-v1", project.fabric_version))
+	// include modImplementation(fabricApi.module("fabric-api-base", project.fabric_version))
+	// include modImplementation(fabricApi.module("fabric-registry-sync-v0", project.fabric_version))
+	// include modImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabric_version))
 }
 
 version = "v${project.mod_version}"

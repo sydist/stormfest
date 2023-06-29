@@ -1,34 +1,31 @@
 {
-    "schemaVersion": 1,
-    "id": "${mod_id}",
-    "version": "${mod_version}",
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
 
-    "name": "${mod_name}",
-    "description": "Stormfest is a mod that adds an **Enchanted Music Disc** dropped from Charged Creepers when killed by Skeleton arrows.\nUpon playing the disc; a thunderstorm will begin, using up the disc's mystical powers.\nAfterwards, the disc can be played normally like any other.",
-    "authors": [
-        "Sydist: Programming",
-        "MisterKaze: Concept & Music",
-        "Hitsuu: Design & Art"
-    ],
-    "contact": {
-        "homepage": "https://discord.gg/ySCQH4PPmC",
-        "sources": "https://github.com/Sydist/stormfest"
-    },
+  "name": "${mod_name}",
+  "description": "Stormfest is a mod that adds an **Enchanted Music Disc** dropped from Charged Creepers when killed by Skeleton arrows.\nUpon playing the disc; a thunderstorm will begin, using up the disc's mystical powers.\nAfterwards, the disc can be played normally like any other.",
+  "authors": [
+    "Sydist: Programming",
+    "MisterKaze: Concept & Music",
+    "Hitsuu: Design & Art"
+  ],
+  "contact": {
+    "homepage": "https://discord.gg/ySCQH4PPmC",
+    "sources": "https://github.com/sydist/stormfest"
+  },
 
-    "license": "MIT",
-    "icon": "assets/${mod_id}/icon.png",
+  "license": "MIT",
+  "icon": "assets/${mod_id}/icon.png",
 
-    "environment": "*",
-    "entrypoints": {
-        "main": [
-            "${maven_group}.Main"
-        ]
-    },
-    "mixins": [],
-    "accessWidener": "${mod_id}.accesswidener",
-    "depends": {
-        "fabricloader": ">=0.14.9",
-        "minecraft": "^1.19",
-        "java": ">=17"
-    }
+  "environment": "*",
+  "entrypoints": {
+    "main": ["${maven_group}.Main"]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "^1.19.4",
+    "java": ">=17"
+  }
 }
