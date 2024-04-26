@@ -15,7 +15,7 @@ Afterwards, the disc can be played normally like any other.
 
 <ins>**This mod requires the Fabric API mod to be used alongside it.**</ins>
 
-[](https://www.youtube.com/watch?v=PJrmYrSkpts)
+[![](https://img.youtube.com/vi/PJrmYrSkpts/0.jpg)](https://www.youtube.com/watch?v=PJrmYrSkpts)
 
 ---
 
